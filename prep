@@ -1,0 +1,100 @@
+If you send app.py to another laptop, you can run DocuMind AI there too. But app.py alone is not enough because the project also needs Python packages, Tesseract OCR, and your Groq API key.
+Here are the exact steps for a Windows laptop using VS Code.
+Step 1 — Send these files
+Send app.py to the other laptop. If possible, also include a requirements.txt file listing the Python dependencies.
+Do not send your .venv folder. The other laptop should create its own virtual environment.
+Your project folder should look like this:
+DocuMind-AI/
+
+app.py
+
+requirements.txt
+
+.env — create locally; don't share your secret key
+
+
+
+Step 2 — Install Python
+On the other laptop:
+1. Install Python 3.11 or another compatible version, preferably the same version used for your current project.
+2. Install VS Code.
+3. Open the project folder in VS Code.
+4. Open the terminal using Terminal → New Terminal.
+Check Python:
+python --version
+
+
+Step 3 — Create a virtual environment
+Run these commands one at a time:
+python -m venv .venv
+
+
+Activate it:
+.\.venv\Scripts\Activate.ps1
+
+
+The terminal should show (.venv) at the beginning.
+If activation is blocked by PowerShell, tell me the error rather than changing system security settings unnecessarily.
+Step 4 — Install Python packages
+Create requirements.txt with these dependencies:
+streamlit
+pymupdf
+pillow
+pytesseract
+opencv-python-headless
+groq
+pydantic
+python-dotenv
+google-genai
+
+
+Then install them:
+python -m pip install -r requirements.txt
+
+
+These are the packages used or installed in your current project environment. Some may not be needed by the latest app.py, but this list helps reproduce the existing setup.
+Step 5 — Install Tesseract OCR
+Download and install Tesseract OCR for Windows from its official repository:
+Tesseract OCR for Windows — installer and instructionsYour current code expects this location:
+C:\Program Files\Tesseract-OCR\tesseract.exe
+
+
+If it installs elsewhere, update the pytesseract.pytesseract.tesseract_cmd path in app.py.
+Check the installation in a new terminal:
+tesseract --version
+
+
+If Windows says the command isn't recognized, the executable may not be in PATH. You can still use the full path configured in app.py.
+Step 6 — Configure the Groq API key
+Create a file named .env in the same folder as app.py.
+Add:
+GROQ_API_KEY=your_groq_api_key_here
+
+
+Replace the placeholder with a valid API key obtained from:
+Groq API keysKeep .env private. Don't send it with your source code or upload it to GitHub.
+Your existing code uses the model qwen/qwen3.8-27b. The new laptop needs internet access and a working Groq account with access to that model. Rate limits may still apply.
+Step 7 — Run DocuMind AI
+In the activated virtual environment, run:
+python -m streamlit run app.py
+
+
+Open the local address displayed in the terminal, usually:
+Open DocuMind AI locallyTest it with a PDF and an image to confirm both text extraction and OCR work.
+
+Quick checklist
+Setup progress
+0 of 8
+
+
+
+[ ] Python and VS Code installed
+[ ] Project files copied
+[ ] Virtual environment created and activated
+[ ] Python dependencies installed
+[ ] Tesseract OCR installed
+[ ] Local .env file configured with Groq API key
+[ ] Streamlit app starts successfully
+[ ] PDF and image uploads tested
+
+Important: If you only send app.py, you can still set up everything else manually using the steps above. You do not need to transfer your original laptop's virtual environment or reinstall VS Code extensions to run the application.

@@ -1,0 +1,13 @@
+# Cloud Run install (brief's cloud architecture: Cloud Run -> Gemini). No torch.
+streamlit
+pymupdf
+pillow
+opencv-python-headless
+pytesseract
+pydantic
+rapidfuzz
+pandas
+python-dotenv
+huggingface_hub
+google-genai
+google-cloud-storage

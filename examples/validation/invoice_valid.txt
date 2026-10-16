@@ -1,0 +1,7 @@
+INVOICE
+Invoice Number: INV-2001
+Seller: Example Supplies
+Subtotal: 200
+Tax: 20
+Total: 220
+Invoice Date: 2026-10-16

@@ -1,0 +1,2 @@
+{"id": 1, "document_id": "demo-invoice", "document": "demo-invoice.pdf", "page": 1, "question": "What is the invoice number?", "answers": ["INV-1045"]}
+{"id": 2, "document_id": "demo-invoice", "document": "demo-invoice.pdf", "page": 1, "question": "What is the total?", "answers": ["220"], "category": "Invoice", "fields": {"invoice_number": ["INV-1045"], "total": ["220"]}}

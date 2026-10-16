@@ -1,0 +1,8 @@
+streamlit
+pymupdf
+pillow
+pytesseract
+groq
+pydantic
+python-dotenv
+httpx
